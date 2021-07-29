@@ -1,0 +1,121 @@
+<div class="container mt 5">
+     <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                 <div class="card-body text-center">
+                    <h4>Personas</h4>
+                 </div>
+            </div>
+        </div>
+     </div>
+
+
+     <div class="row mt 5">
+         <div class="col-lg-5">
+             <div class="card">
+                 <div class="card-body">
+                      <h5>Ingreso de personas:</h5>
+                 </div>
+                 <form [formGroup] = "form" (ngSubmit)="agregarPersona()">
+                 <label>Cod Persona:</label>
+                 <div id="entry">
+                     <input formControlName="id" type="number" id="id" />
+                     <br><br>
+                     <label for="Nombre">Nombre:</label>
+                     <div class="input-group mb-3">
+                        <span class="input-group-text"><i class="fas fa-user" 
+                            [class.green-icon]="this.form.get('nom')?.valid"
+                            [class.red-icon]="this.form.get('nom')?.invalid && this.form.get('nom')?.touched"></i></span>
+                        <input formControlName="nom" type="text" class="form-control" placeholder="Nombre" id="nom"> 
+                      </div>
+
+                      <label for="Fecha">Fecha de nacimiento:</label>
+              
+                      <div class="input-group mb-3">
+
+                         
+                                 <span class="input-group-text">
+                                       <i class="fas fa-calendar-alt"
+                                       [class.green-icon]="this.form.get('fecha')?.valid"
+                                       [class.red-icon]="this.form.get('fecha')?.invalid && this.form.get('fecha')?.touched"></i>
+                                  </span>
+                             
+
+                             <input formControlName="fecha" type="date" class="form-control" id="fecha" name="fecha">  
+
+                      </div>     
+
+                      <label for="Sueldo">Sueldo:</label>
+              
+                      <div class="input-group mb-3">
+
+                            
+                              <span class="input-group-text">
+                                  <i class="fas fa-money-check-alt"
+                                    [class.green-icon]="this.form.get('sueldo')?.valid"
+                                    [class.red-icon]="this.form.get('sueldo')?.invalid && this.form.get('sueldo')?.touched">
+                                  </i>
+                                  
+                              </span>
+                            
+
+                            <input formControlName="sueldo" maxlenght="10" minlenght="3" type="text" class="form-control" id="sueldo" name="sueldo" placeholder="Sueldo">
+
+                      </div> 
+                     
+                 </div>
+                 <br>
+                 <label>Sector: </label>
+                 <select formControlName="sector" id="sector">
+                    <option value="norte">Norte</option>
+                    <option value="sur">Sur</option>
+                 </select>
+                 <br><br>
+                 <label>Zona: </label>
+                 <select formControlName="zona" id="zona">
+                    <option value="Pascuales">Pascuales</option>
+                    <option value="Guasmo">Guasmo</option>
+                 </select>
+                 <br><br>
+                 <button [disabled]="this.form.invalid" type="submit" id="grabar">Grabar</button>
+                 <button id="eliminar">Eliminar</button>
+                 <button id="reset">Reset</button>
+                 <br><br>
+                </form>
+             </div>
+
+         </div>
+        
+       
+         <div class="col-lg-7">
+            <div class="card">
+                <div class="card-body">
+                     <h5>Consultar sueldos por sector y zona:</h5>
+                     <button id="consultar_sueldo">Consultar</button>
+	                 <br><br>
+	                 <p>Puedes darle clic a cualquier fila para poder ver los sueldos de cada persona por sector y zona.</p>
+	                 <table id="sueldo_sector">
+		                 <thead id="head_sueldo">
+                           <tr>
+				               <th>Sector</th>
+				               <th>Zona</th>
+                               <th>Sueldo</th>
+			               </tr>
+                         </thead>
+		                 <tbody id="body_sueldo"></tbody>
+                           <tr *ngFor='let persona of listPersonas'>
+                               <td>{{persona.sector}}</td>
+                               <td>{{persona.zona}}</td>
+                               <td>{{persona.sueldo}}</td>
+
+                           </tr>
+	                 </table>
+                </div>
+
+            </div>
+
+        </div>
+     </div>
+
+
+</div> 

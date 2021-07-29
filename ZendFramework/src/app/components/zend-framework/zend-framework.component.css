@@ -1,0 +1,25 @@
+#sueldo_sector
+{
+	border:3px solid gray;
+	width:95%;
+	border-collapse:collapse;
+	text-align:center;
+}
+
+#head_sueldo
+{
+	background-color:#f5f1f0;
+}
+
+tr, td, th
+{
+	border:1px solid gray;
+}
+
+.green-icon{
+	color: #198754;
+}
+
+.red-icon{
+	color: #dc3545;
+}
