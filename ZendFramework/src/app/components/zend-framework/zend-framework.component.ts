@@ -11,7 +11,7 @@ listPersonas: any[] =[
     {sector:'Pascuales', zona:'Villa bonita', sueldo:'400'}
 ];
   form: FormGroup;
-
+ 
   constructor(private fb: FormBuilder) { 
      this.form = this.fb.group({
        id: ['',Validators.required],
